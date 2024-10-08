@@ -19,17 +19,7 @@ Features
 2. **UI**
 - A coordinated board is displayed.
 - After that a prompt is Displayed to enter values of the move.
-
-3. **Other things i want to add**
-- I am going to add a Main menu: New game, Quit.
-- Also wanna add player name and leaderboard which can be shown in menu.
-- Auto-save Highscore of a returning player.
-- Options to save and resume game (with continued timer).
-- Timer only starts after first move.
-- Auto re-render UI if detecting terminal resize.
-
-- Compile and Run
----------------
+- 
 For windows you can install MINGW
 and run
 ```bash
