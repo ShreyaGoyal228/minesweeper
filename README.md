@@ -19,7 +19,7 @@ Features
 2. **UI**
 - A coordinated board is displayed.
 - After that a prompt is Displayed to enter values of the move.
-- 
+
 For windows you can install MINGW
 and run
 ```bash
