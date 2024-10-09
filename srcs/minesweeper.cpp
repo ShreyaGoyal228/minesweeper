@@ -3,10 +3,6 @@
 #include <cstdlib>
 #include <ctime>
 
-// Herer i created a class for a particular cell
-// Thus its status will be defined by its attributes
-// And one for the board
-// Cell.h, Board.h and Game.h
 #include "Cell.h"
 #include "Board.h"
 #include "Game.h"
@@ -28,8 +24,7 @@ void Board::placeMines() {
     srand(time(0));
     int minesPlaced = 0;
     while (minesPlaced < mines){
-
-        int x = rand() % width;
+        int x = rand() % width;   //generates the random  umber between 0 to width-1
         int y = rand() % height;
 
         if (!cells[y][x].isMine){
@@ -45,7 +40,7 @@ void Board::calculateAdjacentMines() {
         for (int x = 0; x < width; x++){
             if (!cells[y][x].isMine){
                 int count = 0;
-                for (int i = -1; i <= 1; i++){
+                for (int i = -1; i <= 1; i++){  
                     for (int j = -1; j <= 1; j++){
                         int newY = y + i;
                         int newX = x + j;
@@ -130,16 +125,19 @@ void Game::play() {
         board.display();
         int x, y;
         char action;
-        cout << "Enter action (r for reveal, f for flag) followed by coordinates (x y): ";
-        cin >> action >> x >> y;
+        cout << "Enter action (r for reveal, f for flag) followed by coordinates for x and y (x , y): ";
+        cin >> action >> y >> x;
 
+//if the action is revealed
         if (action == 'r') {
             board.revealCell(x, y);
             if (board.checkLose(x, y)) {
                 gameOver = true;
                 cout << "You hit a mine! Game Over." << endl;
             }
-        } else if (action == 'f') {
+        } 
+//if the action is flagged
+        else if (action == 'f') {
             board.toggleFlag(x, y);
         }
 
