@@ -3,7 +3,7 @@ Minesweeper on Console 🕹️
 
 
 This is a simple minesweeper game that runs directly in the terminal. The project is implemented in C++.
-The program is tested on Windows 11 and Linux.
+The program is tested on Windows 11.
 
 **Rules are every number indicated the mines around it's boxes maximum 5.**
 **Dont reveal the mine in which case you loose.**
@@ -20,8 +20,7 @@ Features
 - A coordinated board is displayed.
 - After that a prompt is Displayed to enter values of the move.
 
----------------
 For windows you can install MINGW
 and run
-```bash
+
 g++ -o main minesweeper.cpp
