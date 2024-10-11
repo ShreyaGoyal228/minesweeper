@@ -85,7 +85,9 @@ void Board::display() const {
 void Board::revealCell(int x, int y) {
     if (x < 0 || x >= width || y < 0 || y >= height || cells[y][x].isRevealed || cells[y][x].isFlagged) return;
     cells[y][x].isRevealed = true;
-    if (cells[y][x].adjacentMines == 0 && !cells[y][x].isMine) {
+    if (cells[y][x].adjacentMines == 0 && !cells[y][x].isMine)  
+    //revealCell is called recursively until the cell is not-mine and the adjacent mines of this cell is 0
+    {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 revealCell(x + j, y + i);
@@ -103,7 +105,9 @@ void Board::toggleFlag(int x, int y) {
 bool Board::checkWin() const {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            if (!cells[y][x].isMine && !cells[y][x].isRevealed && !cells[y][x].isFlagged) return false;
+            if(!cells[y][x].isMine && cells[y][x].isFlagged) return false;   //if a non-mine cell is flagged
+            if(cells[y][x].isMine && !cells[y][x].isFlagged) return false;   // if a mine cell is not flagged
+            if (!cells[y][x].isMine && !cells[y][x].isRevealed) return false; //if a non-mine cell is not revealed
         }
     }
     return true;
